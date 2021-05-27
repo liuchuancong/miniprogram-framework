@@ -1,0 +1,20 @@
+{
+  "name": "tyt",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vant/area-data": "^1.1.1",
+    "@vant/weapp": "^1.6.8",
+    "js-base64": "^3.6.0",
+    "js-md5": "^0.7.3",
+    "log-symbols": "^5.0.0"
+  },
+  "devDependencies": {},
+  "description": ""
+}

@@ -1,0 +1,3 @@
+<van-popup show="{{ cityPickerWithBehaviorData.show }}" round position="bottom" custom-style="height: 50%" bind:close="onClose">
+  <van-area area-list="{{ areaList }}" columns-num="{{ cityPickerColumnsNum }}" bind:cancel="onClose" bind:confirm="onConfirm" />
+</van-popup>

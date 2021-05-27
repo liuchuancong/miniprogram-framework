@@ -1,0 +1,10 @@
+<scroll-view id="pagination" style="height: {{height}}px" scroll-y class="scroll-view" bindscrolltolower="loadMore" lower-threshold="{{80}}rpx"
+  bindscrolltoupper="refresh">
+  <van-loading type="spinner" size="24px">加载中...</van-loading>
+  <!-- bindscrolltolower 滚动到底部/右边时触发 -->
+  <view class='list'>
+    <view class='item' wx:for="{{list}}" wx:key="index">
+      {{item.title}}
+    </view>
+  </view>
+</scroll-view>

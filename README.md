@@ -1,6 +1,6 @@
 # miniprogram-framework
 
-miniprogram-framework 是一个个人框架原声架构, 致力于简洁和高可用性的开发体验.
+miniprogram-framework 是一个个人框架, 致力于简洁和高可用性的开发体验.
 
 ## 说明
 
@@ -8,12 +8,13 @@ miniprogram-framework 是一个个人框架原声架构, 致力于简洁和高�
 
 该小程序组件都是基于Vant/weapp编写的, 旨在提供简介一套ui复用.
 
+
 ## 组件列表 
 
 - city-picker组件
 - city-selector组件
 - layout组件
-- pagination组件
+- pagination组件 引用于 [wxp-ui]https://github.com/wxp-ui/wxp-ui
 
 
 ## 如何使用

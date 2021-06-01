@@ -1,0 +1,2 @@
+<city-selector cityList="{{city}}" showSearch="{{true}}" mapKey="{{mapKey}}" showLocation="{{true}}"
+    hotCityList="{{hotCityList}}" bind:getCity="getCity"></city-selector>

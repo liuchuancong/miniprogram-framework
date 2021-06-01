@@ -2,7 +2,9 @@
   "pages": [
     "pages/home/index/index",
     "pages/order/index/index",
-    "pages/my/index/index"
+    "pages/home/city/index",
+    "pages/my/index/index",
+    "pages/home/pagination/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -35,9 +37,12 @@
     ]
   },
   "usingComponents": {
+    "layout":"/components/layout/layout",
     "pagination": "/components/pagination/pagination",
+    "city-selector": "/components/city-selector/city-selector",
+    "city-picker": "/components/city-picker/city-picker",
     "van-toast": "@vant/weapp/toast/index",
-    "cityPicker": "/components/cityPicker/cityPicker",
+    "van-empty": "@vant/weapp/empty/index",
     "van-area": "@vant/weapp/area/index",
     "van-tab": "@vant/weapp/tab/index",
     "van-tabs": "@vant/weapp/tabs/index",
@@ -77,14 +82,19 @@
     "van-row": "@vant/weapp/row/index",
     "van-col": "@vant/weapp/col/index",
     "van-picker": "@vant/weapp/picker/index",
-    "van-index-bar": "@vant/weapp/index-bar/index",
-    "van-index-anchor": "@vant/weapp/index-anchor/index",
     "van-skeleton": "@vant/weapp/skeleton/index",
     "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
     "van-dropdown-item": "@vant/weapp/dropdown-item/index",
     "van-transition": "@vant/weapp/transition/index",
     "van-collapse": "@vant/weapp/collapse/index",
-    "van-collapse-item": "@vant/weapp/collapse-item/index"
+    "van-collapse-item": "@vant/weapp/collapse-item/index",
+    "van-index-bar": "@vant/weapp/index-bar/index",
+    "van-index-anchor": "@vant/weapp/index-anchor/index"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "获取当前位置推荐附近店铺"
+    }
+  }
 }

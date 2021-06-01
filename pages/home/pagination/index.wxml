@@ -1,0 +1,14 @@
+<pagination id="scroll" requesting="{{requesting}}" empty-show="{{emptyShow}}" end="{{end}}"
+  listCount="{{listData.length}}" bind:refresh="refresh" bind:more="more">
+  <view class="cells">
+    <view class="cell" wx:for="{{listData}}" bindtap="itemClick" wx:key="index">
+      <view class="cell__hd">
+        <image mode="aspectFill" src="{{item.images}}" alt="" />
+      </view>
+      <view class="cell__bd">
+        <view class="name">{{item.title}}</view>
+        <view class="des">{{item.description}}</view>
+      </view>
+    </view>
+  </view>
+</pagination>

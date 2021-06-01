@@ -1,0 +1,11 @@
+
+.wrapper {
+  height: 100vh;
+}
+.van-index-anchor{
+  background-color: #f6f6f6!important;
+}
+.van-index-bar__index {
+  font-size: 14px!important;
+  line-height: 20px!important;
+}

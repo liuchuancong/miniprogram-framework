@@ -1,0 +1,10 @@
+<view class="page-wraper">
+  <view class='page-main'>
+    <view class="page-container {{paddingTop ? 'page-container-padding-top': ''}}">
+      <slot></slot>
+    </view>
+  </view>
+  <view wx:if="{{useFooterSlot}}" class='page-footer'>
+    <slot name="footer"></slot>
+  </view>
+</view>

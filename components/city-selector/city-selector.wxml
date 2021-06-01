@@ -1,0 +1,66 @@
+<view class="container">
+    <view wx:if="{{showSearch}}">
+        <van-search value="{{ searchKey }}" bind:focus="showList" placeholder="请输入搜索内容" bind:change="search"
+            bind:clear="search" bind:search="search" shape="round" placeholder="请输入城市名称" />
+        <scroll-view class="list" scroll-y>
+            <block wx:if="{{list.length!=0}}">
+                <scroll-view class="scroll-content" scroll-x="false" scroll-y="true">
+                    <van-cell wx:for="{{list}}" data-city="{{item}}" bind:click="getCity" wx:key="code"
+                        border="{{ false }}" title="{{item.name}}" />
+                </scroll-view>
+            </block>
+        </scroll-view>
+    </view>
+    <view wx:if="{{showLocation}}">
+        <van-cell custom-class="gray-back" border="{{ false }}" title="当前城市" />
+        <view class="margin-top margin-bottom">
+            <view class="location-content" wx:if="{{!notHasLocationPermission && !showErrContent}}">
+                <van-button wx:if="{{!hasGetLocation}}" size="small" round plain type="default">
+                    正在定位中...
+                </van-button>
+                <van-button wx:if="{{hasGetLocation}}" size="small" data-city="{{locationCity}}" bind:click="getCity"
+                    round plain type="default">
+                    {{locationCity.name}}
+                </van-button>
+            </view>
+            <view wx:if="{{notHasLocationPermission}}" class="no-permission">
+                <text>没有位置权限</text>
+                <view class="reset_button" bind:tap="getPositionPermission">
+                    <text class="reset_text">点击重试</text>
+                </view>
+            </view>
+            <view wx:if="{{!notHasLocationPermission && showErrContent}}" class="no-permission">
+                <text>{{errMsg}}</text>
+                <view class="reset_button" bind:tap="getPositionPermission">
+                    <text class="reset_text">点击重试</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <van-cell wx:if="{{showHot && loadComplete}}" custom-class="gray-back" border="{{ false }}" title="热门城市" />
+    <view wx:if="{{showHot && loadComplete}}" class="margin-top margin-bottom margin-right">
+        <van-grid column-num="5" border="{{ false }}">
+            <van-grid-item use-slot wx:for="{{ hotCityList }}" wx:key="index" content-class="van-grid-item__content">
+                <van-button size="small" data-city="{{item}}" bind:click="getCity" round plain type="default">
+                    {{item.name}}
+                </van-button>
+            </van-grid-item>
+        </van-grid>
+    </view>
+    <view hidden="{{!loadComplete}}" class="margin-top">
+        <van-index-bar bind:select="indexBarSelect" highlight-color="#FB8434" sticky index-list="{{ indexList }}">
+            <view wx:for="{{blocks}}" wx:key="title">
+                <view>
+                    <van-index-anchor index="{{item.title}}">{{item.title}}</van-index-anchor>
+                    <van-cell wx:for="{{item.city}}" data-city="{{item}}" bind:click="getCity" wx:key="code"
+                        border="{{ false }}" title="{{item.name}}" />
+                </view>
+            </view>
+        </van-index-bar>
+    </view>
+</view>
+<view hidden="{{!showOverLay}}" class="overlay">
+    <view class="overlay-content">
+        <text class="overlay-content-text">{{overLayText}}</text>
+    </view>
+</view>

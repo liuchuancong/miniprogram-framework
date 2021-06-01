@@ -19,3 +19,9 @@
   line-height: 44px;
   flex: 0 0 44px;
 }
+.page-container-padding-top::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 10px;
+}

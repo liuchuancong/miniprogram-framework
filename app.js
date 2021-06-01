@@ -28,6 +28,6 @@ App({
          
     },
     globalData: {
-    
+        mapKey: '',
     }
 })

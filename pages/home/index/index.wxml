@@ -1,22 +1,36 @@
-<view class="page-wraper">
-  <view class='page-main'>
-    <view class="page-container">
-      <view class="swiper">
-        <swiper class='swiper-container' indicator-dots="{{false}}" circular='true'>
-          <block>
-            <swiper-item class="swiper-container-item">
-              <image src='/assets/images/banner.png' mode="aspectFit"></image>
-            </swiper-item>
-          </block>
-        </swiper>
-      </view>
-      <van-grid column-num="3" border="{{ false }}">
-        <van-grid-item use-slot content-class="category-item" wx:for="{{ 3 }}" wx:for-item="index" wx:key="index">
-          <image style="width: 100%; height: 53px;" src="/assets/images/list0{{index + 1}}.png" />
-        </van-grid-item>
-      </van-grid>
-      <cityPicker id="cityPicker" cityPickerColumnsNum="{{2}}"></cityPicker>
-      <pagination></pagination>
-    </view>
+<layout padding-top>
+  <view class="swiper">
+    <swiper class='swiper-container' indicator-dots="{{false}}" circular='true'>
+      <block>
+        <swiper-item class="swiper-container-item">
+          <image src='/assets/images/banner.png' mode="aspectFit"></image>
+        </swiper-item>
+      </block>
+    </swiper>
   </view>
-</view>
+  <van-grid column-num="3" border="{{ false }}">
+    <van-grid-item use-slot content-class="category-item" wx:for="{{ 3 }}" wx:for-item="index" wx:key="index">
+      <image style="width: 100%; height: 53px;" src="/assets/images/list0{{index + 1}}.png" />
+    </van-grid-item>
+  </van-grid>
+  <city-picker id="cityPicker" cityPickerColumnsNum="{{2}}"></city-picker>
+  <pagination id="scroll" requesting="{{requesting}}" use-empty-slot empty-show="{{emptyShow}}" end="{{end}}"
+    listCount="{{listData.length}}" bind:refresh="refresh" bind:more="more">
+    <view class="cells">
+      <view class="cell" wx:for="{{listData}}" bindtap="goToPagination" wx:key="index">
+        <view class="cell__hd">
+          <image mode="aspectFill" src="{{item.images}}" alt="" />
+        </view>
+        <view class="cell__bd">
+          <view class="name">{{item.title}}</view>
+          <view class="des">{{item.description}}</view>
+        </view>
+      </view>
+    </view>
+    <view slot="empty">
+      <van-empty image="error" description="描述文字" />
+      <!-- <van-empty image="network" description="描述文字" />
+          <van-empty image="search" description="描述文字" /> -->
+    </view>
+  </pagination>
+</layout>

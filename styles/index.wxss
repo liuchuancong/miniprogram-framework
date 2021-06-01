@@ -1,2 +1,2 @@
 @import './flex.wxss';
-@import './layout.wxss'
+@import './custom.wxss';

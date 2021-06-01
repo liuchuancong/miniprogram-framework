@@ -33,4 +33,5 @@
           <van-empty image="search" description="描述文字" /> -->
     </view>
   </pagination>
+  <city-picker bind:confirm="onConfirm" id="city-picker"></city-picker>
 </layout>

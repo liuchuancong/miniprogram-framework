@@ -2,7 +2,7 @@ function Toast(options) {
     if (typeof options === 'number' || typeof options === 'string') {
         if (options != '') {
             wx.showToast({
-                title: 'title',
+                title: options,
                 icon: 'none'
             })
         }
@@ -26,7 +26,7 @@ Toast.loading = function(options) {
     if (typeof options === 'number' || typeof options === 'string') {
         if (options != '') {
             wx.showToast({
-                title: 'title',
+                title: options,
                 icon: 'loading'
             })
         }
@@ -49,7 +49,7 @@ Toast.success = function(options) {
   if (typeof options === 'number' || typeof options === 'string') {
       if (options != '') {
           wx.showToast({
-              title: 'title',
+              title: options,
               icon: 'success'
           })
       }
@@ -73,7 +73,7 @@ Toast.error = function(options) {
   if (typeof options === 'number' || typeof options === 'string') {
       if (options != '') {
           wx.showToast({
-              title: 'title',
+              title: options,
               icon: 'error'
           })
       }

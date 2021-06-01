@@ -24,8 +24,7 @@ App({
         // http 构建
         wx.http = new Request(this)
         // log 日志
-        wx.log = new Log(this)
-         
+        wx.log = new Log(this)  
     },
     globalData: {
         mapKey: '',

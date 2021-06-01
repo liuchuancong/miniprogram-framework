@@ -57,11 +57,6 @@ Component({
 			type: Boolean,
 			value: false
 		},
-		// 颜色
-		height: {
-			type: Number,
-			value: 0,
-		},
 		// 空状态的插槽
 		useEmptySlot: {
 			type: Boolean,
@@ -85,6 +80,7 @@ Component({
 		/* 渲染数据 */
 		scrollTop: 0,
 		overOnePage: false,
+		height:0
 	},
 	methods: {
 		/**

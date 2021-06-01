@@ -5,7 +5,7 @@ Component({
   properties:{
     cityPickerColumnsNum: {
       type: Number,
-      default: 3
+      value: 3
     }
   },
 
@@ -21,6 +21,7 @@ Component({
     },
     onConfirm(event){
       this.chooseCityPicker(event.detail.values)
+      this.triggerEvent('confirm',event.detail.values)
     }
   }
 })

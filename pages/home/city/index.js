@@ -12,7 +12,7 @@ Page({
     this.init()
   },
   getCity(city) {
-    wx.log.i(city)
+    wx.toast.loading('city')
   },
   init() {
     const hotCityList = [{
@@ -93,5 +93,5 @@ Page({
       hotCityList,
       mapKey:app.globalData.mapKey
     })
-  }
+  },
 })

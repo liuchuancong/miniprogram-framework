@@ -66,7 +66,20 @@ Page({
     this.setData({
       enableBackToTop: e.detail.value
     });
-  },
+	},
+	onLoad(){
+		this.getList('refresh', pageStart);
+	},
+
+	onReady(){
+		this.selectComponent('#city-picker').showCityPicker()
+		setTimeout(() => {
+			console.log(this.selectComponent('#city-picker').data.values);
+		}, 5000);
+	},
+	onConfirm(e){
+		console.log(e,'onConfirm');
+	},
 	refreshChange(e) {
 		this.setData({
 			refreshSize: e.detail.value
@@ -139,9 +152,6 @@ Page({
 	more() {
 		this.getList('more', this.data.page);
 	},
-	onLoad() {
-		this.getList('refresh', pageStart);
-  },
   goToPagination(){
     wx.navigateTo({
       url: '/pages/home/pagination/index',

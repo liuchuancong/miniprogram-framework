@@ -1,26 +1,26 @@
  const cityPickerBehavior = Behavior({
   data: {
-    cityPickerWithBehaviorData: {
-      show: false,
-      values: []
-    }
+    show: false,
+    values: []
   },
   methods: {
     showCityPicker(){
       this.setData({
-        'cityPickerWithBehaviorData.show': true
+        'show': true
       })
     },
     hideCityPicker(){
       this.setData({
-        'cityPickerWithBehaviorData.show': false
+        'show': false
       })
     },
     chooseCityPicker(event){
-     
-      this.setData({
-        'cityPickerWithBehaviorData.show': false,
-        'cityPickerWithBehaviorData.values':event
+      return new Promise((resolve)=>{
+        this.setData({
+          'show': false,
+          'values':event
+        })
+        resolve(event)
       })
     }
   }

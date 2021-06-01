@@ -7,7 +7,7 @@
 		<movable-view class="scroll" style="height: calc({{height}}rpx + 40rpx + {{refreshSize}}rpx)" bind:change="change"
 			bind:touchend="touchend" direction="vertical" disabled="{{refreshStatus >= 3}}" y='{{move}}'>
 			<scroll-view id="pagination" class="scroll__view"
-				style="  height: {{height}}rpx;padding-bottom: {{bottomSize}}rpx;padding-top: {{topSize}}rpx;"
+				style="height: {{height}}rpx;padding-bottom: {{bottomSize}}rpx;padding-top: {{topSize}}rpx;"
 				scroll-y="{{refreshStatus == 1}}" bindscroll="scroll" scroll-top="{{scrollTop}}"
 				enable-back-to-top="{{enableBackToTop}}" lower-threshold="{{80}}rpx" bindscrolltolower="more">
 				<view id="refresh" class="scroll__refresh {{successShow ? 'scroll__refresh--hidden' : ''}}"

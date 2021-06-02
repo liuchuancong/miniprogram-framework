@@ -44,6 +44,7 @@ Component({
         notHasLocationPermission: false,
         errMsg: "位置获取失败,请打开手机定位权限",
         showErrContent: false,
+        notHasMapKey:false,
         locationCity: {
             name: ''
         },
@@ -118,14 +119,14 @@ Component({
                         wx.showModal({
                             title: "是否授权当前位置",
                             content: "需要获取您的地理位置，请确认授权，否则无法获取当前城市",
-                            success:  (res)=> {
+                            success: (res) => {
                                 if (res.cancel) {
                                     this.setData({
                                         notHasLocationPermission: true,
                                     });
                                 } else if (res.confirm) {
                                     wx.openSetting({
-                                        success:(data)=> {
+                                        success: (data) => {
                                             if (data.authSetting["scope.userLocation"] == true) {
                                                 wx.showToast({
                                                     title: "授权成功",
@@ -174,7 +175,7 @@ Component({
                     } = res;
                     this.getLocation(longitude, latitude);
                 },
-                fail:  (res) =>{
+                fail: (res) => {
                     wx.getSetting({
                         success: res => {
                             if (typeof (res.authSetting['scope.userLocation']) != 'undefined' && !res.authSetting['scope.userLocation']) {
@@ -207,7 +208,11 @@ Component({
                     url: `https://apis.map.qq.com/ws/geocoder/v1/?location=${latitude},${longitude}&key=${this.data.mapKey}`,
                     success: (res) => {
                         if (res.data.status == 0) {
-                            const {city,adcode,province} = res.data.result.ad_info;
+                            const {
+                                city,
+                                adcode,
+                                province
+                            } = res.data.result.ad_info;
                             if (city) {
                                 this.setData({
                                     locationCity: {
@@ -223,12 +228,14 @@ Component({
                     }
                 })
             } else {
+                this.setData({
+                    notHasMapKey:true
+                })
                 wx.showToast({
                     title: '请传递mapKey',
                     icon: 'none'
                 })
             }
-
         },
         init() {
             wx.showLoading({

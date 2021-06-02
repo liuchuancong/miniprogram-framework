@@ -15,8 +15,11 @@
         <van-cell custom-class="gray-back" border="{{ false }}" title="当前城市" />
         <view class="margin-top margin-bottom">
             <view class="location-content" wx:if="{{!notHasLocationPermission && !showErrContent}}">
-                <van-button wx:if="{{!hasGetLocation}}" size="small" round plain type="default">
+                <van-button wx:if="{{!hasGetLocation && !notHasMapKey}}" size="small" round plain type="default">
                     正在定位中...
+                </van-button>
+                <van-button wx:if="{{!hasGetLocation && notHasMapKey}}" size="small" round plain type="default">
+                    请传递key
                 </van-button>
                 <van-button wx:if="{{hasGetLocation}}" size="small" data-city="{{locationCity}}" bind:click="getCity"
                     round plain type="default">

@@ -57,63 +57,18 @@ Page({
 	data: {
 		requesting: false,
 		end: false,
-		emptyShow: true,
 		page: pageStart,
 		listData: [],
-		empty: true
-	},
-  enableBackToTopChange(e) {
-    this.setData({
-      enableBackToTop: e.detail.value
-    });
 	},
 	onLoad(){
 		this.getList('refresh', pageStart);
 	},
 
 	onReady(){
-		this.selectComponent('#city-picker').showCityPicker()
-		setTimeout(() => {
-			console.log(this.selectComponent('#city-picker').data.values);
-		}, 5000);
+
 	},
 	onConfirm(e){
 		console.log(e,'onConfirm');
-	},
-	refreshChange(e) {
-		this.setData({
-			refreshSize: e.detail.value
-		});
-	},
-	topChange(e) {
-		this.setData({
-			topSize: e.detail.value
-		});
-	},
-	bottomChange(e) {
-		this.setData({
-			bottomSize: e.detail.value
-		});
-	},
-	radioChange: function (e) {
-		this.setData({
-			color: e.detail.value
-		});
-	},
-	emptyChange(e) {
-		if (e.detail.value) {
-			this.setData({
-				listData: [],
-				emptyShow: true,
-				end: true
-			});
-		} else {
-			this.setData({
-				listData: testData,
-				emptyShow: false,
-				end: false
-			});
-		}
 	},
 	getList(type, currentPage) {
 		this.setData({

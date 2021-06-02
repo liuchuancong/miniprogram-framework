@@ -181,7 +181,6 @@ Component({
 					}, 1500)
 				}, 600)
 			} else {
-				
 				if (this.data.refreshStatus !== 3) {
 					this.setData({
 						refreshStatus: 3,

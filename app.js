@@ -1,4 +1,7 @@
-import { setRequestUrl, checkUpdateVersion } from './utils/system'
+import {
+    setRequestUrl,
+    checkUpdateVersion
+} from './utils/system'
 
 import Request from './utils/http'
 
@@ -10,6 +13,8 @@ import Log from './utils/log'
 
 App({
     onLaunch() {
+        const fs = wx.getFileSystemManager()
+        console.log(fs);
         this.init()
     },
     init() {
@@ -24,7 +29,7 @@ App({
         // http 构建
         wx.http = new Request(this)
         // log 日志
-        wx.log = new Log(this)  
+        wx.log = new Log(this)
     },
     globalData: {
         mapKey: '',

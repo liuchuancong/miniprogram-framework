@@ -3,17 +3,17 @@ const setRequestUrl = (context) => {
   switch (accountInfo.miniProgram.envVersion) {
     case 'develop':
       //开发
-      context.globalData.url = 'https://test.tyt2.wl168.net';
+      context.globalData.url = '';
       context.globalData.debug = true
       break;
     case 'trial':
       //体验
-      context.globalData.url = 'https://test.tyt2.wl168.net';
+      context.globalData.url = '';
       context.globalData.debug = false
       break;
     case 'release':
       //正式
-      context.globalData.url = 'https://tyt.hntyy.com.cn';
+      context.globalData.url = '';
       context.globalData.debug = false
       break;
   }
